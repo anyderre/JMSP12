@@ -26,9 +26,10 @@ public class Consumidor {
     String cola;
 //@JmsListener(destination = "temperaturaMessage", containerFactory = "temperaturaFactory")
 
-    public void recieve(){
+    public Temperatura recieve(){
         Temperatura temperatura = (Temperatura) jmsTemplate.receiveAndConvert(cola);
         System.out.println("Recibe la trasaccion"+ temperatura);
         temperaturaServices.guardarTemperatura(temperatura);
+        return temperatura;
     }
 }
