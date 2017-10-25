@@ -5,7 +5,9 @@ import com.edu.pucmm.JMSP12.Services.TemperaturaServices;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.broker.Connection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.jms.*;
@@ -16,11 +18,17 @@ import javax.jms.*;
 @Component
 public class Consumidor {
     @Autowired
-    private TemperaturaServices temperaturaServices;
+    JmsTemplate jmsTemplate;
 
-        @JmsListener(destination = "temperaturaMessage", containerFactory = "temperaturaFactory")
-        public void RecibirTemperatura(Temperatura temperatura){
-            System.out.println("Recibe la trasaccion"+ temperatura);
-            temperaturaServices.guardarTemperatura(temperatura);
-        }
+    @Autowired
+    private TemperaturaServices temperaturaServices;
+    @Value("${jms.queue.destination}")
+    String cola;
+//@JmsListener(destination = "temperaturaMessage", containerFactory = "temperaturaFactory")
+
+    public void recieve(){
+        Temperatura temperatura = (Temperatura) jmsTemplate.receiveAndConvert(cola);
+        System.out.println("Recibe la trasaccion"+ temperatura);
+        temperaturaServices.guardarTemperatura(temperatura);
+    }
 }
