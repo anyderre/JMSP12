@@ -1,6 +1,6 @@
 package com.edu.pucmm.JMSP12.Controllers;
 
-import com.edu.pucmm.JMSP12.Entity.JmsClient;
+import com.edu.pucmm.JMSP12.Services.JmsClient;
 import com.edu.pucmm.JMSP12.Entity.Temperatura;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +14,9 @@ import java.util.Date;
 public class WebController {
 
     @Autowired
-    JmsClient jmsClient;
+    private JmsClient jmsClient;
 
-    @RequestMapping(value="/guardar/tempetaruta", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value="/guardar/temperatura/", method = RequestMethod.POST, consumes = "application/json")
     public String produce(@RequestBody Temperatura msg){
         msg.setFecha(new Date());
         jmsClient.send(msg);

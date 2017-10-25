@@ -30,6 +30,27 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="/js/plugins/morris/raphael.min.js"></script>
+    <script src="/js/plugins/morris/morris.min.js"></script>
+    <script src="/js/plugins/morris/morris-data.js"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+    <script src="/js/plugins/flot/jquery.flot.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="/js/plugins/flot/flot-data.js"></script>
+
+
+
+
 </head>
 
 <body>
@@ -57,7 +78,7 @@
                         <a href="/"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
                     <li class="active">
-                        <a href="/proudcir/temperatura/"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="/producir/Temperatura/"><i class="fa fa-fw fa-bar-chart-o"></i>Nuevo Dispositivo</a>
                     </li>
                 </ul>
             </div>
@@ -255,23 +276,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="/js/plugins/morris/raphael.min.js"></script>
-    <script src="/js/plugins/morris/morris.min.js"></script>
-    <script src="/js/plugins/morris/morris-data.js"></script>
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="/js/plugins/flot/jquery.flot.js"></script>
-    <script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="/js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="/js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="/js/plugins/flot/flot-data.js"></script>
 
 </body>
 
