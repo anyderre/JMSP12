@@ -12,6 +12,7 @@ import java.util.Date;
  */
 @RestController
 public class WebController {
+
     @Autowired
     JmsClient jmsClient;
 
@@ -26,5 +27,4 @@ public class WebController {
 //    public String receive(){
 //        return jsmClient.receive();
 //    }
-
 }
