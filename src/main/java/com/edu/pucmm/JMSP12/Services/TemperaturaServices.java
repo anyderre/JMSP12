@@ -6,6 +6,7 @@ import com.edu.pucmm.JMSP12.Repository.TemperaraturaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,11 +21,11 @@ public class TemperaturaServices {
         return temperaraturaRepository.save(temperatura);
     }
 
-    public List<Temperatura> todasTemperaturas(){
+    public ArrayList<Temperatura> todasTemperaturas(){
         return temperaraturaRepository.findAll();
     }
 
-    public List<Temperatura> buscarTemperaturaPorId(int id){
-        return temperaraturaRepository.findAllById(id);
+    public ArrayList<Temperatura> buscarTemperaturaPorId(int id){
+        return temperaraturaRepository.findFirst10ByIdDispositivoOrderById(id);
     }
 }

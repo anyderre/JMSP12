@@ -123,18 +123,20 @@
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     }
-    setInterval(function () {
-//                alert("Hello");
+
+    function postData (idEquipo){
         var temperatura = getRandomInt(-32, 52);
         var humedad = getRandomInt(0, 50);
-//        var data = JSON.stringify({
+//        $.post('/api/guardar/temperatura/', {
 //            idDispositivo: idEquipo,
 //            temperatura: temperatura,
 //            humedad: humedad
-        });
+//        },function(data,status,xhr){
+//            console.log(data)
+//        } )
         $.ajax({
             type: 'post',
-            url: '/guardar/temperatura/',
+            url: '/api/guardar/temperatura/',
             data: JSON.stringify({
                 idDispositivo: idEquipo,
                 temperatura: temperatura,
@@ -146,28 +148,12 @@
                 console.log(data)
             }
         });
-//        $.ajax({
-//            type: "POST",
-//            url: '/guardar/temperatura/',
-//            dataType: "JSON",
-//            contentType: "application/json; charset=utf-8",
-//            data: JSON.stringify({
-//                idDispositivo: idEquipo,
-//                temperatura: temperatura,
-//                humedad: humedad
-//            }),
-//            success: function (data) {
-////                        $('.result').html(data);
-//                console.log(data)
-//            },
-//            complete: function () {
-//                // Schedule the next request when the current one's complete
-////                        setTimeout(worker, 5000);
-//            }, error: function () {
-//                console.log("error")
-//            }
-//        });
-    }, 5000);
+    }
+    setInterval(function () {
+//                alert("Hello");
+       postData(idEquipo);
+
+    }, 10000);
 //    console.log(idEquipo)
 
 

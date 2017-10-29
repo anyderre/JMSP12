@@ -18,18 +18,16 @@ import javax.jms.*;
 @Component
 public class Consumidor {
     @Autowired
-    JmsTemplate jmsTemplate;
+   private JmsTemplate jmsTemplate;
 
     @Autowired
     private TemperaturaServices temperaturaServices;
-    @Value("${jms.queue.destination}")
-    String cola;
-//@JmsListener(destination = "temperaturaMessage", containerFactory = "temperaturaFactory")
 
-    public Temperatura recieve(){
-        Temperatura temperatura = (Temperatura) jmsTemplate.receiveAndConvert(cola);
-        System.out.println("Recibe la trasaccion"+ temperatura);
+    @JmsListener(destination = "temp")
+    public void recieve()throws JMSException{
+       Temperatura temperatura = (Temperatura) jmsTemplate.receiveAndConvert("temp");
+        System.out.println("Recibe la trasaccion");
+        System.out.println(temperatura.getIdDispositivo());
         temperaturaServices.guardarTemperatura(temperatura);
-        return temperatura;
     }
 }
