@@ -17,9 +17,9 @@ public class WebController {
 
     @Autowired
     private TemperaturaServices temperaturaServices;
-    
+
     @RequestMapping(value = "/buscar/temperatura/{id}", produces = "application/json", method = RequestMethod.GET)
-    public ArrayList<Temperatura> buscarTemperaturas(@RequestParam("id")int id){
+    public ArrayList<Temperatura> buscarTemperaturas(@PathVariable("id")int id){
         return temperaturaServices.buscarTemperaturaPorId(id);
     }
 

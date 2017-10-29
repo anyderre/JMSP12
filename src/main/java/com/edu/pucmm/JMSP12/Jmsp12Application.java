@@ -71,7 +71,7 @@ public class Jmsp12Application  implements ApplicationRunner{
 				Random random = new Random();
 
 				while (true){
-					jmsTemplate.convertAndSend("temp", new Temperatura(new Date(),idDispositivo, random.nextInt(50)-100, random.nextInt(32) ));
+					jmsTemplate.convertAndSend("temp", new Temperatura(new Date(),idDispositivo, random.nextInt(50), random.nextInt(32) ));
 					Thread.sleep(3000);
 				}
 			}

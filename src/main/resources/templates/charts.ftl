@@ -188,19 +188,15 @@
 
             $.get("/api/buscar/temperatura/1", function(data, status){
 
-                data.data.each(function (doc) {
-                    console.log(doc)
-                });
-                chartHum1= new Chart(ctxHumedad1, {
-                    type: 'line',
-
-                })
+                console.log(data)
+//                chartHum1= new Chart(ctxHumedad1, {
+//                    type: 'line',
+//
+//                })
             });
 
             $.get("/api/buscar/temperatura/2", function(data, status){
-                data.data.each(function (doc) {
-                    console.log(doc)
-                });
+               console.log(data)
             });
         },6000);
 
