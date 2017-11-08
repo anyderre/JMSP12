@@ -14,6 +14,6 @@ public interface TemperaraturaRepository extends JpaRepository<Temperatura, Inte
 
     Temperatura save(Temperatura temperatura);
     ArrayList<Temperatura> findAll();
-    ArrayList<Temperatura> findFirst10ByIdDispositivoOrderById(int id);
+    ArrayList<Temperatura> findFirst10ByIdDispositivoOrderByIdDesc(int id);
 
 }

@@ -26,6 +26,6 @@ public class TemperaturaServices {
     }
 
     public ArrayList<Temperatura> buscarTemperaturaPorId(int id){
-        return temperaraturaRepository.findFirst10ByIdDispositivoOrderById(id);
+        return temperaraturaRepository.findFirst10ByIdDispositivoOrderByIdDesc(id);
     }
 }
